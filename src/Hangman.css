@@ -56,3 +56,14 @@
   color: #eeeeee;
   box-shadow: 0 6px #9e9e9e;
 }
+
+.Hangman-button-reset-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400;
+}
+
+.Hangman .Hangman-button-reset-container .Hangman-button-reset {
+  width: 90px;
+}
