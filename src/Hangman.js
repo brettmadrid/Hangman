@@ -21,6 +21,7 @@ class Hangman extends Component {
     super(props);
     this.state = { nWrong: 0, guessed: new Set(), answer: randomWord() };
     this.handleGuess = this.handleGuess.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   /** guessedWord: show current-state of word:
@@ -30,6 +31,14 @@ class Hangman extends Component {
     return this.state.answer
       .split('')
       .map(ltr => (this.state.guessed.has(ltr) ? ltr : '_'));
+  }
+
+  handleReset() {
+    this.setState({
+      nWrong: 0,
+      guessed: new Set(),
+      answer: randomWord(),
+    });
   }
 
   /** handleGuest: handle a guessed letter:
@@ -82,7 +91,10 @@ class Hangman extends Component {
         <p className='Hangman-word'>{this.guessedWord()}</p>
         {display}
         <div className='Hangman-button-reset-container'>
-          <button className='Hangman-button-reset'> RESET</button>
+          <button className='Hangman-button-reset' onClick={this.handleReset}>
+            {' '}
+            RESET
+          </button>
         </div>
       </div>
     );
